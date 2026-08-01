@@ -34,9 +34,23 @@
     return div;
   }
 
+  function goToFirstPage() {
+    try {
+      var parts = location.pathname.split("/").filter(Boolean);
+      if (!parts.length) return;
+      var last = parts[parts.length - 1];
+      var isIndex = last === "index.html" || !/\.[a-z0-9]+$/i.test(last);
+      if (isIndex) return;
+      var ups = parts.length - 2;
+      if (ups < 0) ups = 0;
+      location.href = new Array(ups + 1).join("../") + "index.html";
+    } catch (e) {}
+  }
+
   function unlock(lock) {
     try { sessionStorage.setItem(KEY, HASH); } catch (e) {}
     document.documentElement.style.overflow = "";
+    goToFirstPage();
     lock.classList.add("unlocked");
     setTimeout(function () { lock.remove(); }, 550);
   }
