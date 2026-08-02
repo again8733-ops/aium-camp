@@ -15,16 +15,96 @@
   <div class="page">
     <span class="badge">무작위 OX 퀴즈</span>
     <h1><span class="grad">박한별</span> 선생님 퀴즈!</h1>
-    <p class="desc">박한별 선생님에 대한 OX 퀴즈를 풀어봐요!</p>
+    <p class="desc">한별쌤에 대해 얼마나 알고 있는지 O/X로 맞혀봐요! 버튼을 눌러 정답을 확인하세요.</p>
 
-    <div class="placeholder-box">
-      <span class="emoji">⭐</span>
-      <h2>박한별 선생님 OX 퀴즈를 만들 준비 중이에요!</h2>
-      <p>문제와 O/X 버튼, 정답 확인 기능을 이곳에 만들면 돼요.</p>
+    <div class="ox-wrap">
+      <div class="ox-card" data-answer="X">
+        <div class="ox-q">
+          <span class="ox-num">Q1</span>
+          <p>선생님은 춤을 추는 걸 좋아한다</p>
+        </div>
+        <div class="ox-btns">
+          <button type="button" class="ox-btn o" data-pick="O">O</button>
+          <button type="button" class="ox-btn x" data-pick="X">X</button>
+        </div>
+        <p class="ox-result"></p>
+      </div>
+
+      <div class="ox-card" data-answer="O">
+        <div class="ox-q">
+          <span class="ox-num">Q2</span>
+          <p>선생님은 매운 음식을 잘 먹는다</p>
+        </div>
+        <div class="ox-btns">
+          <button type="button" class="ox-btn o" data-pick="O">O</button>
+          <button type="button" class="ox-btn x" data-pick="X">X</button>
+        </div>
+        <p class="ox-result"></p>
+      </div>
+
+      <div class="ox-card" data-answer="O">
+        <div class="ox-q">
+          <span class="ox-num">Q3</span>
+          <p>선생님의 혈액형은 O형이다</p>
+        </div>
+        <div class="ox-btns">
+          <button type="button" class="ox-btn o" data-pick="O">O</button>
+          <button type="button" class="ox-btn x" data-pick="X">X</button>
+        </div>
+        <p class="ox-result"></p>
+      </div>
+
+      <div class="ox-card" data-answer="X">
+        <div class="ox-q">
+          <span class="ox-num">Q4</span>
+          <p>선생님은 공포 영화를 좋아한다</p>
+        </div>
+        <div class="ox-btns">
+          <button type="button" class="ox-btn o" data-pick="O">O</button>
+          <button type="button" class="ox-btn x" data-pick="X">X</button>
+        </div>
+        <p class="ox-result"></p>
+      </div>
+
+      <div class="ox-card" data-answer="O">
+        <div class="ox-q">
+          <span class="ox-num">Q5</span>
+          <p>선생님은 민트 초코를 좋아하는 민초파다</p>
+        </div>
+        <div class="ox-btns">
+          <button type="button" class="ox-btn o" data-pick="O">O</button>
+          <button type="button" class="ox-btn x" data-pick="X">X</button>
+        </div>
+        <p class="ox-result"></p>
+      </div>
     </div>
-    <p class="tip">💡 이 페이지는 아직 꾸미는 중이에요</p>
+
     <a href="../quiz.html" class="link-back">선생님 선택으로 돌아가기</a>
   </div>
+
+  <script>
+    (function () {
+      document.querySelectorAll(".ox-card").forEach(function (card) {
+        var answer = card.getAttribute("data-answer");
+        var result = card.querySelector(".ox-result");
+        card.querySelectorAll(".ox-btn").forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            if (card.classList.contains("answered")) return;
+            card.classList.add("answered");
+            btn.classList.add("picked");
+            if (btn.getAttribute("data-pick") === answer) {
+              card.classList.add("correct");
+              result.textContent = "🎉 축하해! 정답이야~";
+            } else {
+              card.classList.add("wrong");
+              result.textContent = "😅 안타깝지만 틀렸구먼~";
+              card.querySelector('.ox-btn[data-pick="' + answer + '"]').classList.add("reveal");
+            }
+          });
+        });
+      });
+    })();
+  </script>
   <script src="../../js/lock.js"></script>
 </body>
 </html>
