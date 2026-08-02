@@ -1902,6 +1902,52 @@ button { font-family: var(--font); cursor: pointer; }
 .sub-bingo { background: linear-gradient(135deg, #ff8a5c 0%, #ff5f5f 55%, #e8458b 100%); box-shadow: 0 18px 36px rgba(255, 95, 95, 0.35); }
 .sub-squishy { background: linear-gradient(135deg, #8cf2dc 0%, #3fd0c0 55%, #2ba6b8 100%); box-shadow: 0 18px 36px rgba(63, 208, 192, 0.35); }
 .sub-kahoot { background: linear-gradient(135deg, #9d7bff 0%, #7c5cff 55%, #5a2de0 100%); box-shadow: 0 18px 36px rgba(124, 92, 255, 0.4); }
+.sub-craft { background: linear-gradient(135deg, #ffd66b 0%, #ff9d5c 55%, #ff7e67 100%); box-shadow: 0 18px 36px rgba(255, 157, 92, 0.35); }
+
+.craft-emoji { position: absolute; font-size: 24px; animation: bob 2.6s ease-in-out infinite; }
+.craft-emoji.ce1 { top: 10px; left: 14px; }
+.craft-emoji.ce2 { top: 12px; right: 20px; animation-delay: .4s; }
+.craft-emoji.ce3 { bottom: 12px; left: 26px; font-size: 20px; animation-delay: .8s; }
+.craft-ring {
+  position: absolute;
+  top: 50%; left: 22%;
+  transform: translate(-50%, -50%);
+  width: 86px; height: 86px;
+  border: 8px solid #ffd24a;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.35);
+  box-shadow: 0 8px 18px rgba(214, 74, 74, 0.25);
+  animation: bob 3s ease-in-out infinite;
+}
+.craft-char {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 36px;
+}
+.craft-plaster {
+  position: absolute;
+  top: 50%; right: 20%;
+  transform: translateY(-50%);
+  width: 92px; height: 116px;
+  border-radius: 20px;
+  background: linear-gradient(160deg, #fff 0%, #ffe9f0 100%);
+  box-shadow: 0 10px 22px rgba(214, 74, 74, 0.28);
+  animation: bob 3.2s ease-in-out infinite .2s;
+}
+.craft-plaster::before {
+  content: "";
+  position: absolute;
+  inset: 14px 10px;
+  border: 3px dashed #ffb6c9;
+  border-radius: 14px;
+}
+.cp-char {
+  position: absolute;
+  bottom: 10px; left: 50%;
+  transform: translateX(-50%);
+  font-size: 26px;
+}
 
 .bingo-burst {
   position: absolute;
